@@ -21,7 +21,7 @@ const Navbar = () => {
             <Link to={"/"}>
               <Button style={{ color: "white" }} onClick={handleLogout}>
                 LOGOUT
-              </Button>
+              </Button> 
             </Link>
           </Toolbar>
         </AppBar>
