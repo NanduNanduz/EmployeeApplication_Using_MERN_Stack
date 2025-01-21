@@ -7,7 +7,7 @@ import axios from "axios";
 import axiosInstance from "../axiosInterceptor";
 
 const AddEmployee = () => {
-  const [blogData, setData] = useState({
+  const [employeeData, setData] = useState({
     blogTitle: "",
     blogImageUrl: "",
     blogDescription: "",
@@ -20,21 +20,20 @@ const AddEmployee = () => {
     if (location.state != null) {
       axiosInstance
         .put(
-          `${import.meta.env.VITE_API_URL}/blog/editblog/` +
-            location.state.val._id,
-          blogData
+          "http://localhost:3000/employee/editemployee/" + location.state.val._id,
+          employeeData
         )
         .then((res) => {
           alert(res.data.message);
-          navigate("/blogs");
+          navigate("/employees");
         });
     } else {
       axiosInstance
-        .post(`${import.meta.env.VITE_API_URL}/blog/addblog`, blogData)
+        .post("http://localhost:3000/employee/addemployee", employeeData)
         .then((res) => {
           alert("Blog added");
           // console.log(res)
-          navigate("/blogs");
+          navigate("/employees");
           //home page url '/blogs' in app.jsx
         });
 
@@ -50,14 +49,14 @@ const AddEmployee = () => {
   useEffect(() => {
     if (location.state != null) {
       setData({
-        ...blogData,
+        ...employeeData,
         blogTitle: location.state.val.blogTitle,
         blogDescription: location.state.val.blogDescription,
         blogImageUrl: location.state.val.blogImageUrl,
       });
     } else {
       setData({
-        ...blogData,
+        ...employeeData,
         blogTitle: "",
         blogDescription: "",
         blogImageUrl: "",
@@ -79,9 +78,9 @@ const AddEmployee = () => {
               label="Title"
               variant="outlined"
               name="blogTitle"
-              value={blogData.blogTitle}
+              value={employeeData.blogTitle}
               onChange={(e) => {
-                setData({ ...blogData, blogTitle: e.target.value });
+                setData({ ...employeeData, blogTitle: e.target.value });
               }}
             ></TextField>
           </Grid>
@@ -92,9 +91,9 @@ const AddEmployee = () => {
               label="Image Url"
               variant="outlined"
               name="blogImageUrl"
-              value={blogData.blogImageUrl}
+              value={employeeData.blogImageUrl}
               onChange={(e) => {
-                setData({ ...blogData, blogImageUrl: e.target.value });
+                setData({ ...employeeData, blogImageUrl: e.target.value });
               }}
             ></TextField>
           </Grid>
@@ -104,9 +103,9 @@ const AddEmployee = () => {
               label="Description"
               variant="outlined"
               name="blogDescription"
-              value={blogData.blogDescription}
+              value={employeeData.blogDescription}
               onChange={(e) => {
-                setData({ ...blogData, blogDescription: e.target.value });
+                setData({ ...employeeData, blogDescription: e.target.value });
               }}
             ></TextField>
           </Grid>

@@ -20,7 +20,7 @@ const EmployeeList = () => {
   useEffect(() => {
     // '/blogs' - in the get of blog routes
     axiosInstance
-      .get("http://localhost:3000/employees")
+      .get("http://localhost:3000/employee/employees")
       .then((res) => {
         setData(res.data);
       })

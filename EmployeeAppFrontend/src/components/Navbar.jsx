@@ -3,7 +3,7 @@ import React from 'react'
 import Link from 'react-router-dom'
 
 const Navbar = () => {
-  return (
+  return (            
     <div>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
