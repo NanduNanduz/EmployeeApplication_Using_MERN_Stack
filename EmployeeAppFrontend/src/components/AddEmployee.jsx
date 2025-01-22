@@ -8,15 +8,17 @@ import axiosInstance from "../axiosInterceptor";
 
 const AddEmployee = () => {
   const [employeeData, setData] = useState({
-    blogTitle: "",
-    blogImageUrl: "",
-    blogDescription: "",
+    employeeName: "",
+    employeeDesignation: "",
+    employeeSalary: "",
+    employeeDepartment: "",
+    employeeLocation: ""
   });
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  function addBlog() {
+  function addEmployee() {
     if (location.state != null) {
       axiosInstance
         .put(
@@ -31,7 +33,7 @@ const AddEmployee = () => {
       axiosInstance
         .post("http://localhost:3000/employee/addemployee", employeeData)
         .then((res) => {
-          alert("Blog added");
+          alert("Employee added");
           // console.log(res)
           navigate("/employees");
           //home page url '/blogs' in app.jsx
@@ -50,16 +52,20 @@ const AddEmployee = () => {
     if (location.state != null) {
       setData({
         ...employeeData,
-        blogTitle: location.state.val.blogTitle,
-        blogDescription: location.state.val.blogDescription,
-        blogImageUrl: location.state.val.blogImageUrl,
+        employeeName: location.state.val.employeeName,
+        employeeDesignation: location.state.val.employeeDesignation,
+        employeeSalary: location.state.val.employeeSalary,
+        employeeDepartment: location.state.val.employeeDepartment,
+        employeeLocation: location.state.val.employeeLocation
       });
     } else {
       setData({
         ...employeeData,
-        blogTitle: "",
-        blogDescription: "",
-        blogImageUrl: "",
+        employeeName: "",
+        employeeDesignation: "",
+        employeeSalary: "",
+        employeeDepartment: "",
+        employeeLocation: ""
       });
     }
   }, []);
@@ -75,12 +81,12 @@ const AddEmployee = () => {
           <Grid size={{ xs: 6, md: 6 }}>
             <TextField
               fullWidth
-              label="Title"
+              label="Employee Name"
               variant="outlined"
-              name="blogTitle"
-              value={employeeData.blogTitle}
+              name="employeeName"
+              value={employeeData.employeeName}
               onChange={(e) => {
-                setData({ ...employeeData, blogTitle: e.target.value });
+                setData({ ...employeeData, employeeName: e.target.value });
               }}
             ></TextField>
           </Grid>
@@ -88,31 +94,64 @@ const AddEmployee = () => {
           <Grid size={{ xs: 6, md: 6 }}>
             <TextField
               fullWidth
-              label="Image Url"
+              label="Employee Designation"
               variant="outlined"
-              name="blogImageUrl"
-              value={employeeData.blogImageUrl}
+              name="employeeDesignation"
+              value={employeeData.employeeDesignation}
               onChange={(e) => {
-                setData({ ...employeeData, blogImageUrl: e.target.value });
+                setData({
+                  ...employeeData,
+                  employeeDesignation: e.target.value,
+                });
               }}
             ></TextField>
           </Grid>
           <Grid size={{ xs: 12, md: 12 }}>
             <TextField
               fullWidth
-              label="Description"
+              label="Employee Salary"
               variant="outlined"
-              name="blogDescription"
-              value={employeeData.blogDescription}
+              name="employeeSalary"
+              value={employeeData.employeeSalary}
               onChange={(e) => {
-                setData({ ...employeeData, blogDescription: e.target.value });
+                setData({ ...employeeData, employeeSalary: e.target.value });
+              }}
+            ></TextField>
+          </Grid>
+          <Grid size={{ xs: 12, md: 12 }}>
+            <TextField
+              fullWidth
+              label="Employee Department"
+              variant="outlined"
+              name="employeeDepartment"
+              value={employeeData.employeeDepartment}
+              onChange={(e) => {
+                setData({
+                  ...employeeData,
+                  employeeDepartment: e.target.value,
+                });
+              }}
+            ></TextField>
+          </Grid>
+          <Grid size={{ xs: 12, md: 12 }}>
+            <TextField
+              fullWidth
+              label="Employee Location"
+              variant="outlined"
+              name="employeeLocation"
+              value={employeeData.employeeLocation}
+              onChange={(e) => {
+                setData({
+                  ...employeeData,
+                  employeeLocation: e.target.value,
+                });
               }}
             ></TextField>
           </Grid>
 
           <Grid size={{ xs: 12, md: 12 }}>
-            <Button color="secondary" variant="outlined" onClick={addBlog}>
-              Add blog
+            <Button color="secondary" variant="outlined" onClick={addEmployee}>
+              Add Employee
             </Button>
           </Grid>
         </Grid>
