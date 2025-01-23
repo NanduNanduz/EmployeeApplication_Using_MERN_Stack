@@ -40,7 +40,7 @@ const EmployeeList = () => {
   const deleteEmployee = (id) => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       axiosInstance
-        .delete(`/employee/deleteemployees/${id}`)
+        .delete(`/employee/deleteemployee/${id}`)
         .then((res) => {
           alert("Blog deleted successfully!");
           // Remove the deleted blog from the state

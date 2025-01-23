@@ -26,7 +26,7 @@ const Login = () => {
         if (res.data.token) {
           sessionStorage.setItem("logintoken", res.data.token);
           //if loken is generated it will navigate to blogs page
-          navigate("/blogs");
+          navigate("/employees");
         } else {
           //otherwise prohibited (stay there it self)
           navigate("/");
@@ -65,9 +65,9 @@ const Login = () => {
           <TextField
             placeholder="Email"
             variant="outlined"
-            name="userEmail"
+            name="email"
             onChange={(e) => {
-              setForm({ ...form, userEmail: e.target.value });
+              setForm({ ...form, email: e.target.value });
             }}
           ></TextField>
         </div>
@@ -77,9 +77,9 @@ const Login = () => {
           <TextField
             placeholder="Password"
             variant="outlined"
-            name="userPassword"
+            name="password"
             onChange={(e) => {
-              setForm({ ...form, userPassword: e.target.value });
+              setForm({ ...form, password: e.target.value });
             }}
           ></TextField>
         </div>
