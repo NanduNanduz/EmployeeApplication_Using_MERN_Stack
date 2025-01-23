@@ -1,6 +1,6 @@
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -12,25 +12,30 @@ const Navbar = () => {
    navigate("/");
  };
 
-  return (            
+  return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
-          <Toolbar style={{ backgroundColor: "brown" }}>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Toolbar style={{ backgroundColor: "#56c596" }}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1 }}
+              style={{ color: "black" }}
+            >
               EmployeeApp
             </Typography>
 
             <Link to={"/employees"}>
-              <Button style={{ color: "white" }}>HOME</Button>{" "}
+              <Button style={{ color: "black" }}>HOME</Button>{" "}
             </Link>
             <Link to={"/addemployees"}>
-              <Button style={{ color: "white" }}>ADDEMPLOYEE</Button>
+              <Button style={{ color: "black" }}>ADDEMPLOYEE</Button>
             </Link>
             <Link to={"/"}>
-              <Button style={{ color: "white" }} onClick={handleLogout}>
+              <Button style={{ color: "black" }} onClick={handleLogout}>
                 LOGOUT
-              </Button> 
+              </Button>
             </Link>
           </Toolbar>
         </AppBar>

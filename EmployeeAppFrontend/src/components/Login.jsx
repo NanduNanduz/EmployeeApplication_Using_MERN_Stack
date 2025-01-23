@@ -84,11 +84,16 @@ const Login = () => {
           ></TextField>
         </div>
         <br />
-        <Button color="#f44336" variant="contained" onClick={capValue}>
+        <Button
+          color="black"
+          variant="contained"
+          onClick={capValue}
+          style={{ backgroundColor: "#56c596" }}
+        >
           Login
         </Button>
 
-        <Link to={"/signup"}>
+        <Link to={"/signup"} style={{ color: "#56c596" }}>
           <br /> <br />
           {/* to - keyword and /signup is the path in app.jsx */}
           New user? Please Register here

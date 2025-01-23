@@ -73,8 +73,8 @@ const AddEmployee = () => {
   return (
     <div>
       <div style={{ margin: "8%", textAlign: "center" }}>
-        <Typography variant="h3" style={{ color: "Brown" }}>
-          Add Blog
+        <Typography variant="h3" style={{ color: "#56c596" }}>
+          Add Employee
         </Typography>
         <br />
         <Grid container spacing={2}>
@@ -150,7 +150,12 @@ const AddEmployee = () => {
           </Grid>
 
           <Grid size={{ xs: 12, md: 12 }}>
-            <Button color="secondary" variant="outlined" onClick={addEmployee}>
+            <Button
+              color="black"
+              variant="outlined"
+              onClick={addEmployee}
+              style={{ backgroundColor: "#56c596" }}
+            >
               Add Employee
             </Button>
           </Grid>
