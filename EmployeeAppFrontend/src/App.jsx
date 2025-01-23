@@ -1,12 +1,11 @@
 import React from "react";
-import Home from "./components/Home";
 import Login from "./components/Login";
 import { Route, Routes } from "react-router-dom";
 import Signup from "./components/Signup";
-import Addblog from "./components/Addblog";
-import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import PrivateRoutes from "./components/PrivateRoutes";
+import EmployeeList from "./components/EmployeeList";
+import AddEmployee from "./components/AddEmployee"
 
 const App = () => {
   return (
@@ -21,10 +20,10 @@ const App = () => {
         {/* here the home is passed as aprop to main and the props name is child */}
 
         <Route element={<PrivateRoutes />}>
-          <Route path="/employees" element={<Main child={<Home />} />}></Route>
+          <Route path="/employees" element={<Main child={<EmployeeList />} />}></Route>
           <Route
             path="/addemployees"
-            element={<Main child={<Addblog />} />}
+            element={<Main child={<AddEmployee />} />}
           ></Route>
         </Route>
       </Routes>
