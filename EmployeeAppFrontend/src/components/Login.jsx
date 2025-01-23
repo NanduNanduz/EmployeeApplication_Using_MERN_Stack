@@ -92,7 +92,6 @@ const Login = () => {
         >
           Login
         </Button>
-
         <Link to={"/signup"} style={{ color: "#56c596" }}>
           <br /> <br />
           {/* to - keyword and /signup is the path in app.jsx */}
