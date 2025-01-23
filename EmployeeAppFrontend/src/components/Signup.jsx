@@ -19,30 +19,15 @@ const Signup = () => {
       <br />
       <Grid container spacing={2}>
         <Grid size={{ xs: 6, md: 6 }}>
-          <TextField fullWidth label="Name" variant="outlined"></TextField>
-        </Grid>
-        <Grid size={{ xs: 6, md: 6 }}>
           <TextField fullWidth label="Email" variant="outlined"></TextField>
         </Grid>
         <Grid size={{ xs: 6, md: 6 }}>
           <TextField fullWidth label="Password" variant="outlined"></TextField>
         </Grid>
         <Grid size={{ xs: 6, md: 6 }}>
-          <TextField
-            fullWidth
-            label="Phone Number"
-            variant="outlined"
-          ></TextField>
+          <TextField fullWidth label="Confirm Password" variant="outlined"></TextField>
         </Grid>
 
-        <Grid size={{ xs: 12, md: 12 }}>
-          <TextField
-            fullWidth
-            label="Address"
-            variant="outlined"
-            multiline="{4}"
-          ></TextField>
-        </Grid>
         <Grid size={{ xs: 12, md: 12 }}>
           <Button
             color="black"
