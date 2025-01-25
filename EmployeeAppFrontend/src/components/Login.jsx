@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import {Button, TextField, Typography} from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
 
   
   const [form, setForm] = useState({
-    userEmail: "",
-    userPassword: "",
+    email: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -24,8 +25,11 @@ const Login = () => {
         // blogs is given in the route of app.jsx - frontend
         //if token is with the data then it is save to the frontend
         if (res.data.token) {
-          sessionStorage.setItem("logintoken", res.data.token);
+          const token = res.data.token;
+          sessionStorage.setItem("logintoken", token);
           //if loken is generated it will navigate to blogs page
+            const decodedToken = jwtDecode(token);
+            sessionStorage.setItem("role", decodedToken.role);
           navigate("/employees");
         } else {
           //otherwise prohibited (stay there it self)
