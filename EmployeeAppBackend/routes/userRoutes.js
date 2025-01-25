@@ -22,13 +22,18 @@ router.post("/login", async (req, res) => {
       const payload = {
         email: user.email,
         password: user.password,
+        role: user.role,
       };
-      const token = jwt.sign(payload, "employeeApp");
+       const token = jwt.sign(payload, "employeeApp");
 
-      //that fetched user password is checked with the given pass
-      //sending this token to the frontend
-      //store that front end in the session storage
-      res.status(200).send({ message: "Login Successful", token: token });
+       //that fetched user password is checked with the given pass
+       //sending this token to the frontend
+       //store that front end in the session storage
+       res.status(200).send({ message: "Login Successful", token: token });
+     
+    }
+    else{
+      res.status(400).send({ message: "Invalid credentials" });
     }
   } catch (error) {
     console.log(error);
