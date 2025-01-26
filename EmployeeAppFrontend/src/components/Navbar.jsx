@@ -1,10 +1,12 @@
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import React from 'react'
 import { Link, useNavigate } from "react-router-dom";
+import axiosInstance from "../axiosInterceptor";
 
 const Navbar = () => {
 
  const navigate = useNavigate();
+ const role = sessionStorage.getItem("role");
 
  const handleLogout = () => {
    sessionStorage.removeItem("logintoken");
@@ -29,9 +31,11 @@ const Navbar = () => {
             <Link to={"/employees"}>
               <Button style={{ color: "black" }}>HOME</Button>{" "}
             </Link>
-            <Link to={"/addemployees"}>
-              <Button style={{ color: "black" }}>ADDEMPLOYEE</Button>
-            </Link>
+            {role == "admin" && (
+              <Link to={"/addemployees"}>
+                <Button style={{ color: "black" }}>ADDEMPLOYEE</Button>
+              </Link>
+            )}
             <Link to={"/"}>
               <Button style={{ color: "black" }} onClick={handleLogout}>
                 LOGOUT
