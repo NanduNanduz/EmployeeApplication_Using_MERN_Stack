@@ -15,19 +15,16 @@ const Login = () => {
   const navigate = useNavigate();
 
   function capValue() {
-    // console.log(form);
-    // (give the backend port no: and backend url) redirection url - app.js/index.js)
     axios
       .post("http://localhost:3000/users/login", form)
       .then((res) => {
         console.log(res);
         alert(res.data.message);
-        // blogs is given in the route of app.jsx - frontend
-        //if token is with the data then it is save to the frontend
+        //if token is with the data then it is save in the frontend
         if (res.data.token) {
           const token = res.data.token;
           sessionStorage.setItem("logintoken", token);
-          //if loken is generated it will navigate to blogs page
+          //if loken is generated it will navigate to employees page
             const decodedToken = jwtDecode(token);
             sessionStorage.setItem("role", decodedToken.role);
           navigate("/employees");
@@ -61,7 +58,7 @@ const Login = () => {
         <br />
         <br />
         <div>
-          {/* for to capture data need to write onChange event   and any change in the field is setting to the 2nd var in useState*/}
+          {/* for to capture data need to write onChange event  and any change in the field is setting to the 2nd var in useState*/}
           {/* spread operator used to concatenate new value  */}
           <TextField
             placeholder="Email"
@@ -95,7 +92,6 @@ const Login = () => {
         </Button>
         <Link to={"/signup"} style={{ color: "#56c596" }}>
           <br /> <br />
-          {/* to - keyword and /signup is the path in app.jsx */}
           New user? Please Register here
         </Link>
       </div>

@@ -12,7 +12,7 @@ const AddEmployee = () => {
     employeeDesignation: "",
     employeeSalary: "",
     employeeDepartment: "",
-    employeeLocation: ""
+    employeeLocation: "",
   });
 
   const navigate = useNavigate();
@@ -22,7 +22,8 @@ const AddEmployee = () => {
     if (location.state != null) {
       axiosInstance
         .put(
-          "http://localhost:3000/employee/editemployee/" + location.state.val._id,
+          "http://localhost:3000/employee/editemployee/" +
+            location.state.val._id,
           employeeData
         )
         .then((res) => {
@@ -34,18 +35,12 @@ const AddEmployee = () => {
         .post("http://localhost:3000/employee/addemployee", employeeData)
         .then((res) => {
           alert("Employee added");
-          // console.log(res)
           navigate("/employees");
-          //home page url '/blogs' in app.jsx
         });
-
-      // .catch((error)=>{
-      //   alert('blog not added')
-      // })
     }
   }
 
-  // while the page loading the data should be filled (for update only)- use useEffect
+  // use useEffect - while the page loading the data should be filled (for update only)
   // useLocation -  for to access the data that passed with the navigate through state
 
   useEffect(() => {
@@ -56,7 +51,7 @@ const AddEmployee = () => {
         employeeDesignation: location.state.val.employeeDesignation,
         employeeSalary: location.state.val.employeeSalary,
         employeeDepartment: location.state.val.employeeDepartment,
-        employeeLocation: location.state.val.employeeLocation
+        employeeLocation: location.state.val.employeeLocation,
       });
     } else {
       setData({
@@ -65,7 +60,7 @@ const AddEmployee = () => {
         employeeDesignation: "",
         employeeSalary: "",
         employeeDepartment: "",
-        employeeLocation: ""
+        employeeLocation: "",
       });
     }
   }, []);

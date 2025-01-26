@@ -6,6 +6,7 @@ import axiosInstance from "../axiosInterceptor";
 const Navbar = () => {
 
  const navigate = useNavigate();
+ 
  const role = sessionStorage.getItem("role");
 
  const handleLogout = () => {
