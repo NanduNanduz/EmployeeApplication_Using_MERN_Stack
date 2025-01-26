@@ -62,10 +62,10 @@ const EmployeeList = () => {
                   Designation: {row.employeeDesignation}
                 </Typography>
                 <Typography variant="body2">
-                  Salary: {row.employeeSalary}
+                  Department: {row.employeeDepartment}
                 </Typography>
                 <Typography variant="body2">
-                  Department: {row.employeeDepartment}
+                  Salary: {row.employeeSalary}
                 </Typography>
                 <Typography variant="body2">
                   Location: {row.employeeLocation}

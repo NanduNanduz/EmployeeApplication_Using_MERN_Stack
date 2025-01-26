@@ -29,7 +29,7 @@ const Signup = () => {
         "http://localhost:3000/users/adduser",
         form
       );
-      alert(response.data);
+      alert("Registration Successfull");
       setForm({ email: "", password: "", confirmPassword: "" });
       navigate("/");
     } catch (error) {
