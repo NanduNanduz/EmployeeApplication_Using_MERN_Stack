@@ -63,22 +63,25 @@ const EmployeeList = () => {
           {/* row - represent each items in the array and also the arrow fun start with '()' in the react not '{}'  */}
           {cardData.map((row) => (
             <Grid size={4}>
-              <Card sx={{ maxWidth: 345 }}>
+              <Card
+                sx={{ maxWidth: 345 }}
+                style={{ backgroundColor: ' #cff4d2' }}
+              >
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     {row.employeeName}
                   </Typography>
 
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography variant="body2" component="div">
                     Designation: {row.employeeDesignation}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    Salary: {row.EmployeeSalary}
+                  <Typography variant="body2" component="div">
+                    Salary: {row.employeeSalary}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                  <Typography variant="body2" component="div">
                     Department: {row.employeeDepartment}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                  <Typography variant="body2" component="div">
                     Location: {row.employeeLocation}
                   </Typography>
                 </CardContent>
@@ -86,7 +89,7 @@ const EmployeeList = () => {
                   <CardActions>
                     <Button
                       size="small"
-                      color="warning"
+                      style={{ backgroundColor: "#56c596" }}
                       variant="contained"
                       onClick={() => {
                         update_data(row);
@@ -97,7 +100,7 @@ const EmployeeList = () => {
                     </Button>
                     <Button
                       size="small"
-                      color="error"
+                      style={{ backgroundColor: "#56c258" }}
                       variant="contained"
                       onClick={() => deleteEmployee(row._id)}
                     >
